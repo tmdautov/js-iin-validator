@@ -1,4 +1,4 @@
-const { validateIIN } = require('./app.js');
+import { validateIIN } from './app.deno.js';
 
 // Function to generate a random IIN
 function generateRandomIIN() {
@@ -26,9 +26,9 @@ function runPerformanceTest() {
     }
     
     const endTime = performance.now();
-    const totalTimeMs = endTime - startTime;
+    const totalTime = (endTime - startTime) / 1000;
     
-    console.log(`\nTotal time for ${iterations.toLocaleString()} validations: ${(totalTimeMs / 1000).toFixed(3)} seconds`);
+    console.log(`\nTotal time for ${iterations.toLocaleString()} validations: ${totalTime.toFixed(3)} seconds`);
 }
 
 // Run the test
